@@ -1,0 +1,107 @@
+.settings-page { max-width: 900px; }
+.settings-layout { display: flex; flex-direction: column; gap: 20px; }
+
+.settings-section {
+  padding: 28px 32px;
+}
+
+.ss-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--gray-light);
+}
+
+.ss-icon {
+  font-size: 28px;
+  width: 52px;
+  height: 52px;
+  background: var(--beige);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ss-header h2 { font-size: 18px; margin-bottom: 4px; }
+.ss-header p { font-size: 13px; color: var(--gray); }
+
+/* Days selector */
+.days-selector {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.day-btn {
+  width: 52px;
+  height: 44px;
+  border: 1.5px solid var(--gray-light);
+  border-radius: var(--radius-md);
+  background: transparent;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--gray);
+  cursor: pointer;
+  transition: var(--transition);
+  font-family: var(--font-body);
+}
+
+.day-btn:hover { border-color: var(--brown); color: var(--brown); }
+.day-btn.active {
+  background: var(--brown);
+  border-color: var(--brown);
+  color: white;
+}
+
+/* Toggles */
+.toggles-list { display: flex; flex-direction: column; gap: 0; }
+
+.toggle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(232,199,200,0.3);
+  gap: 16px;
+}
+
+.toggle-row:last-child { border-bottom: none; }
+
+.tr-label { font-size: 14px; font-weight: 600; color: var(--dark); margin-bottom: 2px; }
+.tr-desc { font-size: 13px; color: var(--gray); }
+
+.toggle {
+  width: 48px;
+  height: 26px;
+  border-radius: var(--radius-full);
+  background: var(--gray-light);
+  border: none;
+  cursor: pointer;
+  position: relative;
+  transition: var(--transition);
+  flex-shrink: 0;
+}
+
+.toggle.on { background: var(--brown); }
+
+.toggle-thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+  transition: var(--transition);
+}
+
+.toggle.on .toggle-thumb { left: 25px; }
+
+@media (max-width: 640px) {
+  .settings-section { padding: 20px 16px; }
+}

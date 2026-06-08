@@ -1,0 +1,87 @@
+.portfolio-page { max-width: 1200px; }
+
+.drop-zone {
+  border: 2px dashed var(--gray-light);
+  border-radius: var(--radius-xl);
+  padding: 48px 24px;
+  text-align: center;
+  cursor: pointer;
+  transition: var(--transition);
+  margin-bottom: 28px;
+  background: var(--white);
+}
+
+.drop-zone:hover, .drop-zone.drag-over {
+  border-color: var(--brown);
+  background: var(--beige);
+}
+
+.dz-icon { font-size: 40px; margin-bottom: 12px; }
+.dz-title { font-size: 16px; font-weight: 600; color: var(--dark); margin-bottom: 6px; }
+.dz-sub { font-size: 13px; color: var(--gray); }
+
+/* Grid */
+.portfolio-grid-dash {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.portfolio-item-dash {
+  aspect-ratio: 1;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+}
+
+.portfolio-item-dash img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.portfolio-item-dash:hover img { transform: scale(1.05); }
+
+.pi-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(transparent 40%, rgba(0,0,0,0.7));
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 14px;
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.portfolio-item-dash:hover .pi-overlay { opacity: 1; }
+
+.pi-caption {
+  color: white;
+  font-size: 12px;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.pi-delete-btn {
+  background: var(--danger);
+  color: white;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+  font-family: var(--font-body);
+  align-self: flex-start;
+}
+
+.pi-delete-btn:hover { background: #b05e56; }
+
+@media (max-width: 1024px) { .portfolio-grid-dash { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 768px) { .portfolio-grid-dash { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .portfolio-grid-dash { grid-template-columns: repeat(2, 1fr); gap: 8px; } }

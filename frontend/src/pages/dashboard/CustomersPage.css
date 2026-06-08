@@ -1,0 +1,155 @@
+.customers-page { max-width: 1200px; }
+
+.customers-layout {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+
+.customers-list-panel {
+  padding: 0;
+  overflow: hidden;
+  max-height: calc(100vh - 200px);
+  display: flex;
+  flex-direction: column;
+}
+
+.clp-search {
+  padding: 16px;
+  border-bottom: 1px solid var(--gray-light);
+}
+
+.customers-list {
+  overflow-y: auto;
+  flex: 1;
+}
+
+.customer-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  cursor: pointer;
+  transition: var(--transition);
+  border-bottom: 1px solid rgba(232,199,200,0.2);
+}
+
+.customer-row:hover { background: var(--beige); }
+.customer-row.active { background: rgba(165,106,67,0.08); border-right: 3px solid var(--brown); }
+
+.cr-avatar {
+  width: 40px; height: 40px;
+  background: linear-gradient(135deg, var(--pink) 0%, var(--brown-light) 100%);
+  border-radius: var(--radius-md);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; font-weight: 700; color: white;
+  flex-shrink: 0;
+}
+
+.cr-info { flex: 1; min-width: 0; }
+.cr-name { font-size: 14px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.cr-phone { font-size: 12px; color: var(--gray); }
+
+.cr-meta { text-align: right; flex-shrink: 0; }
+.cr-visits { font-size: 12px; font-weight: 600; color: var(--brown); }
+.cr-last { font-size: 11px; color: var(--gray); }
+
+/* Detail panel */
+.customer-detail-panel {
+  padding: 28px;
+  max-height: calc(100vh - 200px);
+  overflow-y: auto;
+}
+
+.cd-header {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  margin-bottom: 4px;
+}
+
+.cd-avatar {
+  width: 64px; height: 64px;
+  background: linear-gradient(135deg, var(--pink) 0%, var(--brown-light) 100%);
+  border-radius: var(--radius-lg);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 26px; font-weight: 700; color: white;
+  flex-shrink: 0;
+}
+
+.cd-info h2 { font-size: 22px; margin-bottom: 6px; }
+
+.cd-contact {
+  display: flex;
+  gap: 16px;
+  font-size: 13px;
+  color: var(--dark-soft);
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.cd-stats {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.cd-stat {
+  font-size: 12px;
+  color: var(--gray);
+}
+
+.cd-stat strong {
+  font-size: 15px;
+  color: var(--brown);
+  display: block;
+}
+
+.cd-section-title {
+  font-size: 16px;
+  color: var(--dark);
+  margin-bottom: 14px;
+}
+
+/* Appt history */
+.cd-appts {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  margin-bottom: 4px;
+}
+
+.cd-appt-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 11px 0;
+  border-bottom: 1px solid rgba(232,199,200,0.3);
+}
+
+.cd-appt-row:last-child { border-bottom: none; }
+
+.cd-appt-date {
+  text-align: center;
+  background: var(--beige);
+  border-radius: var(--radius-sm);
+  padding: 6px 10px;
+  min-width: 44px;
+  flex-shrink: 0;
+}
+
+.cad-day { font-family: var(--font-display); font-size: 18px; color: var(--brown); line-height: 1; font-weight: 600; }
+.cad-month { font-size: 11px; color: var(--gray); text-transform: uppercase; }
+
+.cd-appt-info { flex: 1; }
+.cai-service { font-size: 14px; font-weight: 500; }
+.cai-time { font-size: 12px; color: var(--gray); }
+
+.cd-appt-right { text-align: right; flex-shrink: 0; }
+.cai-price { font-family: var(--font-display); font-size: 15px; color: var(--brown); margin-bottom: 4px; }
+
+@media (max-width: 900px) {
+  .customers-layout { grid-template-columns: 1fr; }
+  .customers-list-panel { max-height: 400px; }
+}

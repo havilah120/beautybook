@@ -1,0 +1,76 @@
+.services-page { max-width: 1200px; }
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.service-item {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.si-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 4px;
+}
+
+.si-icon { font-size: 28px; }
+
+.si-actions { display: flex; gap: 6px; }
+
+.si-name { font-size: 18px; }
+.si-cat { font-size: 11px; margin-bottom: 4px; }
+.si-desc { font-size: 13px; color: var(--gray); line-height: 1.6; flex: 1; }
+
+.si-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid var(--gray-light);
+}
+
+.si-price {
+  font-family: var(--font-display);
+  font-size: 22px;
+  color: var(--brown);
+  font-weight: 600;
+}
+
+.si-duration { font-size: 13px; color: var(--gray); }
+
+/* Add card */
+.add-card {
+  border: 2px dashed var(--gray-light);
+  cursor: pointer;
+  background: transparent !important;
+  box-shadow: none !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 180px;
+  transition: var(--transition);
+}
+
+.add-card:hover {
+  border-color: var(--brown);
+  background: var(--beige) !important;
+}
+
+.add-card-inner {
+  text-align: center;
+  color: var(--gray);
+}
+
+.add-icon { font-size: 32px; margin-bottom: 8px; }
+.add-card-inner p { font-size: 14px; font-weight: 500; }
+
+@media (max-width: 1024px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { .services-grid { grid-template-columns: 1fr; } }
