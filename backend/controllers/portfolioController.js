@@ -63,3 +63,58 @@ exports.deletePortfolioItem = async (req, res) => {
     res.status(500).json({ success: false, message: 'Server error' });
   }
 };
+
+exports.replacePortfolioImage = async (req, res) => {
+    try {
+        const vendorId = req.user.vendorId;
+        const { id } = req.params;
+
+        if (!req.file) {
+            return res.status(400).json({
+                success: false,
+                message: "No image uploaded",
+            });
+        }
+
+        const [items] = await db.query(
+            "SELECT * FROM portfolio WHERE id = ? AND vendor_id = ?",
+            [id, vendorId]
+        );
+
+        if (!items.length) {
+            return res.status(404).json({
+                success: false,
+                message: "Portfolio item not found",
+            });
+        }
+
+        // delete old file
+        const oldPath = path.join(
+            __dirname,
+            "..",
+            items[0].image_url
+        );
+
+        if (fs.existsSync(oldPath)) {
+            fs.unlinkSync(oldPath);
+        }
+
+        // update database
+        await db.query(
+            "UPDATE portfolio SET image_url = ? WHERE id = ?",
+            [`/uploads/${req.file.filename}`, id]
+        );
+
+        res.json({
+            success: true,
+            message: "Image replaced successfully",
+        });
+
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({
+            success: false,
+            message: "Server error",
+        });
+    }
+};

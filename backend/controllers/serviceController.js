@@ -62,7 +62,10 @@ exports.deleteService = async (req, res) => {
     const [existing] = await db.query('SELECT id FROM services WHERE id = ? AND vendor_id = ?', [id, vendorId]);
     if (existing.length === 0) return res.status(404).json({ success: false, message: 'Service not found' });
 
-    await db.query('UPDATE services SET is_active = 0 WHERE id = ?', [id]);
+    await db.query(
+        'DELETE FROM services WHERE id = ? AND vendor_id = ?',
+        [id, vendorId]
+    );
     res.json({ success: true, message: 'Service deleted' });
   } catch (err) {
     res.status(500).json({ success: false, message: 'Server error' });

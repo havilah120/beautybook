@@ -84,7 +84,7 @@ export default function PortfolioPage() {
     const formData = new FormData();
     formData.append('image', files[0]);
     try {
-      await API.patch(`/portfolio/${replaceTarget.id}/replace`, formData, {
+      await API.put(`/portfolio/${replaceTarget.id}/replace`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
       showToast('success', 'Image replaced successfully.');
