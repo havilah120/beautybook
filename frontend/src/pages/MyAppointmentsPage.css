@@ -1,4 +1,8 @@
-.my-appts-page { min-height: 100vh; }
+.my-appts-page { 
+  min-height: 100vh; 
+  display: flex;
+  flex-direction: column;
+}
 
 .my-appts-hero {
   background: linear-gradient(135deg, var(--beige) 0%, var(--pink-light) 100%);
@@ -12,6 +16,7 @@
 .my-appts-body {
   padding: 48px 16px 80px;
   max-width: 800px;
+  flex: 1;
 }
 
 .search-card {

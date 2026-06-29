@@ -11,7 +11,6 @@ router.get('/client', getClientAppointments);
 router.get('/availability', checkAvailability);
 router.patch('/client/:booking_id', clientRescheduleOrCancel);
 
-// Protected routes
 router.get('/vendor', auth, getVendorAppointments);
 router.patch('/vendor/:id', auth, updateAppointmentStatus);
 router.get('/dashboard', auth, getDashboardStats);

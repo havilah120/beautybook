@@ -301,14 +301,15 @@
 }
 
 .vc-badge-beauty {
-  background: rgba(255, 255, 255, 0.92);
-  color: var(--brown-dark);
+  background: #FDF7F7;
+  color: #B8784C;
   border: 1px solid rgba(232, 199, 200, 0.6);
 }
 
 .vc-badge-fashion {
-  background: rgba(43, 43, 43, 0.82);
-  color: rgba(255, 255, 255, 0.9);
+  background: rgba(141, 108, 122, 0.15);
+  color: #8D6C7A;
+  border: 1px solid rgba(141, 108, 122, 0.25);
 }
 
 /* Card body */

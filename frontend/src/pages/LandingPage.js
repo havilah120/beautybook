@@ -4,7 +4,11 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import './LandingPage.css';
 import IconBox from "../components/IconBox";
-import { Users, User, Search, Sparkles, Shirt, ShieldCheck, MapPin, Star, Zap, CalendarDays, Briefcase } from "lucide-react";
+import {
+  Users, User, Search, Sparkles, Scissors,
+  ShieldCheck, MapPin, Star, Zap,
+  CalendarDays, Briefcase, CheckCircle
+} from "lucide-react";
 import { useEffect, useState } from 'react';
 import api from '../utils/api';
 
@@ -35,20 +39,38 @@ useEffect(() => {
           <div className="hero-blob blob-2"></div>
           <div className="hero-blob blob-3"></div>
         </div>
+
         <div className="container hero-content">
+
+          {/* LEFT */}
           <div className="hero-text">
-            <span className="hero-badge"> Nigeria's Beauty & Fashion Platform</span>
+            <span className="hero-badge">
+              <Sparkles size={13} />
+              Nigeria's Beauty &amp; Fashion Platform
+            </span>
+
             <h1 className="hero-headline">
               Your Beauty,<br />
               <em>Your Way</em>
             </h1>
+
             <p className="hero-sub">
-              Discover talented beauty artists and fashion designers near you. Book appointments instantly, manage your style journey all in one place.
+              Discover talented beauty artists and fashion designers near you.
+              Browse real portfolios and book your appointment in minutes,
+              no calls, no stress.
             </p>
+
             <div className="hero-actions">
-              <Link to="/vendors" className="btn btn-primary btn-lg">Explore Vendors</Link>
-              <Link to="/my-appointments" className="btn btn-outline btn-lg">My Appointments</Link>
+              <Link to="/vendors" className="btn btn-primary btn-lg">
+                <Search size={16} />
+                Explore Vendors
+              </Link>
+              <Link to="/vendors" className="btn btn-outline btn-lg">
+                <CalendarDays size={16} />
+                Book Appointment
+              </Link>
             </div>
+
             <div className="hero-stats">
               <div className="hero-stat">
                 <span className="stat-num">50+</span>
@@ -64,31 +86,83 @@ useEffect(() => {
               </div>
             </div>
           </div>
+
+          {/* RIGHT — Clean marketplace showcase */}
           <div className="hero-visual">
-            <div className="hero-card-main">
-              <div className="hc-header">
-                <div className="hc-avatar">👑</div>
-                <div>
-                  <div className="hc-name">Glam Studio</div>
-                  <div className="hc-tag">Beauty · Lagos</div>
+
+            {/* Featured bridal makeup card */}
+            <div className="hv-featured-card">
+              <div className="hv-featured-img hv-img-makeup">
+                <div className="hv-featured-overlay">
+                  <span className="hv-category-pill">
+                    <Sparkles size={11} /> Bridal Makeup
+                  </span>
                 </div>
               </div>
-              <div className="hc-services">
-                <div className="hc-service"> Bridal Makeup — ₦25,000</div>
-                <div className="hc-service"> Nail Art — ₦8,000</div>
-                <div className="hc-service"> Facial — ₦15,000</div>
+              <div className="hv-featured-body">
+                <div className="hv-vendor-row">
+                  <div className="hv-vendor-avatar">A</div>
+                  <div className="hv-vendor-info">
+                    <div className="hv-vendor-name">Glam Studio by Amara</div>
+                    <div className="hv-vendor-location">
+                      <MapPin size={11} /> Lagos Island
+                    </div>
+                  </div>
+                  <div className="hv-vendor-rating">
+                    <Star size={12} fill="#f4b400" color="#f4b400" />
+                    <span>4.9</span>
+                  </div>
+                </div>
+                <div className="hv-service-row">
+                  <span className="hv-service-name">Bridal Makeup</span>
+                  <span className="hv-service-price">₦25,000</span>
+                </div>
               </div>
-              <Link to="/vendors" className="btn btn-primary" style={{width:'100%',justifyContent:'center'}}>Book Now →</Link>
             </div>
-            <div className="hero-card-float card-float-1">
-              <span>✅</span> Booking Confirmed
-            </div>
-            <div className="hero-card-float card-float-2">
-              <span>⭐</span> 4.9 Rating
+
+            {/* Two equal smaller cards */}
+            <div className="hv-small-cards">
+
+              <div className="hv-small-card">
+                <div className="hv-small-img hv-img-nails">
+                  <span className="hv-category-pill hv-pill-sm">Nail Art</span>
+                </div>
+                <div className="hv-small-body">
+                  <div className="hv-small-name">Lush Nail Bar</div>
+                  <div className="hv-small-meta">
+                    <div className="hv-small-stars">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} size={10} fill="#f4b400" color="#f4b400" />
+                      ))}
+                    </div>
+                    <span className="hv-small-price">from ₦8,000</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="hv-small-card">
+                <div className="hv-small-img hv-img-fashion">
+                  <span className="hv-category-pill hv-pill-sm">Fashion</span>
+                </div>
+                <div className="hv-small-body">
+                  <div className="hv-small-name">La Mode Atelier</div>
+                  <div className="hv-small-meta">
+                    <div className="hv-small-stars">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} size={10} fill="#f4b400" color="#f4b400" />
+                      ))}
+                    </div>
+                    <span className="hv-small-price">from ₦35,000</span>
+                  </div>
+                </div>
+              </div>
+
             </div>
           </div>
+
         </div>
       </section>
+
 
 {/* Trust / Social Proof */}
 <section className="trust-section">
