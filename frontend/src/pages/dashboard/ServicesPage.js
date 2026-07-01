@@ -16,7 +16,7 @@ const EMPTY_FORM = {
 
 export default function ServicesPage() {
   const [services, setServices]     = useState([]);
-  const [loading, setLoading]        = useState(true);
+  const [loading, setLoading]       = useState(true);
   const [modal, setModal]           = useState(null);
   const [editTarget, setEditTarget] = useState(null);
   const [deleteTarget, setDeleteTarget] = useState(null);
